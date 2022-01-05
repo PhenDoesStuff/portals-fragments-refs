@@ -1,13 +1,13 @@
 import React from 'react';
 import './Button.css';
 
-function Button(props) {
+function Button({ type, children, onClick }) {
 	return (
 		<button
 			className='button'
-			type={props.type || 'button'}
-			onClick={props.onClick}>
-			{props.children}
+			type={type || 'button'}
+			onClick={onClick}>
+			{children}
 		</button>
 	);
 }
