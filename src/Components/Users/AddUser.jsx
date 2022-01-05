@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
+import ErrorModal from '../UI/ErrorModal';
 import './AddUser.css';
 
 function AddUser({ onAddUser }) {
@@ -37,24 +38,31 @@ function AddUser({ onAddUser }) {
 	};
 
 	return (
-		<Card className='user'>
-			<form onSubmit={addUserHandler}>
-				<label htmlFor='username'>Username</label>
-				<input
-					id='username'
-					value={enteredUsername}
-					onChange={usernameChangeHandler}
-				/>
-				<label htmlFor='age'>Age (Years)</label>
-				<input
-					type='number'
-					id='age'
-					value={enteredAge}
-					onChange={ageChangeHandler}
-				/>
-			</form>
-			<Button type='submit'>Add User</Button>
-		</Card>
+		<>
+			<ErrorModal
+				title='An error occured!'
+				message='Something went wrong!'
+			/>
+
+			<Card className='user'>
+				<form onSubmit={addUserHandler}>
+					<label htmlFor='username'>Username</label>
+					<input
+						id='username'
+						value={enteredUsername}
+						onChange={usernameChangeHandler}
+					/>
+					<label htmlFor='age'>Age (Years)</label>
+					<input
+						type='number'
+						id='age'
+						value={enteredAge}
+						onChange={ageChangeHandler}
+					/>
+				</form>
+				<Button type='submit'>Add User</Button>
+			</Card>
+		</>
 	);
 }
 
