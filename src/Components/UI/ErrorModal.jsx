@@ -8,7 +8,7 @@ function ErrorModal({ title, message, onConfirm }) {
 		<div className='backdrop' onClick={onConfirm}></div>;
 	}
 
-	function ErrorModal({ title, message }) {
+	function ModalOverlay({ title, message }) {
 		<Card className='modal'>
 			<header className='header'>
 				<h2>{title}</h2>
@@ -22,7 +22,14 @@ function ErrorModal({ title, message, onConfirm }) {
 		</Card>;
 	}
 
-	return <></>;
+	return (
+		<>
+			{ReactDOM.createPortal(
+				<Backdrop onConfirm={onConfirm} />,
+				document.getElementById('backdrop-root')
+			)}
+		</>
+	);
 }
 
 export default ErrorModal;
