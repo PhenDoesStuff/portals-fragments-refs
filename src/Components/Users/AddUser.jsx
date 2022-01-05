@@ -47,12 +47,17 @@ function AddUser({ onAddUser }) {
 		setEnteredAge(e.target.value);
 	};
 
+	const errorHandler = () => {
+		setError(null);
+	};
+
 	return (
 		<>
 			{error && (
 				<ErrorModal
 					title={error.title}
 					message={error.message}
+					onConfirm={errorHandler}
 				/>
 			)}
 
