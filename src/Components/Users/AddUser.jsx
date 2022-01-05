@@ -76,8 +76,8 @@ function AddUser({ onAddUser }) {
 						value={enteredAge}
 						onChange={ageChangeHandler}
 					/>
+					<Button type='submit'>Add User</Button>
 				</form>
-				<Button type='submit'>Add User</Button>
 			</Card>
 		</>
 	);
